@@ -1,0 +1,28 @@
+{% extends 'gallery/base.html.twig' %}
+{% block body %}
+
+    <hr/>
+    <div class="pagination">
+    {% for page, number in pagination %}
+        {% if number is null %}
+            <span>{{ page|raw }}</span>
+        {% else %}
+            <a href="?page={{ number }}">{{ page|raw }}</a>
+        {% endif %}
+    {% endfor %}
+    </div>
+    <hr/>
+
+    <div class="row">
+    {% for image in images %}
+        {% if loop.index0 is divisible by(5) %}
+            <div class="column">
+        {% endif %}
+                <img src="{{'images/gallery/'~image}}" alt="{{ image }}" />
+        {% if loop.index is divisible by(5) %}
+            </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+
+{% endblock %}
