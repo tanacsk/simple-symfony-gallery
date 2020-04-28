@@ -11,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class GalleryController extends AbstractController
 {
     /**
-     * @Route("/gallery", name="gallery")
+     * @Route("/", name="homepage")
      */
     public function listAction(Request $request)
     {
